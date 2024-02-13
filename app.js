@@ -11,23 +11,25 @@ buttons.forEach(boton =>{
             return;
         }
         if(boton.id === "delete"){
-            inputDisplay.value = inputDisplay.value.slice(0, -1);
+            if(inputDisplay.value.length === 1){
+                inputDisplay.value = "0";
+            }else{
+                inputDisplay.value = inputDisplay.value.slice(0, -1);
+            }
             return;
         }
-        if(inputDisplay.value === '0'){
+        
+        if (inputDisplay.value === '0' && clickedButton !== '0'  && clickedButton !== '*' && clickedButton !== '-' && clickedButton !== '/') {
             inputDisplay.value = clickedButton;
-        }else{
+        } else {
             inputDisplay.value += clickedButton;  
         }
-        console.log(inputDisplay.value);
     })
 })
 
 resetButton.addEventListener("click", () =>{
-    inputDisplay.value = '';
+    inputDisplay.value = '0';
     if(inputDisplay.value === ''){
         inputDisplay.value = '0';
     }
 })
-
-
